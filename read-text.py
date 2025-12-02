@@ -51,7 +51,7 @@ def main():
             print("\nText:")
 
             for line in result.read.blocks[0].lines:
-                print(f" {line.textfile}")
+                print(f" {line.text}")
             # Annotate the text in the image
             annotate_lines(image_file, result.read)
         
