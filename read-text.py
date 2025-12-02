@@ -6,7 +6,6 @@ from PIL import Image, ImageDraw
 from matplotlib import pyplot as plt
 
 # import namespaces
-# import namespaces
 from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.ai.vision.imageanalysis.models import VisualFeatures
 from azure.core.credentials import AzureKeyCredential
@@ -28,7 +27,6 @@ def main():
         image_file = 'images/Lincoln.jpg'
         if len(sys.argv) > 1:
             image_file = sys.argv[1]
-
 
         # Authenticate Azure AI Vision client
         cv_client = ImageAnalysisClient(
@@ -54,6 +52,15 @@ def main():
                 print(f" {line.text}")
             # Annotate the text in the image
             annotate_lines(image_file, result.read)
+            
+
+            # Find individual words in each line
+            print ("\nIndividual words:")
+            for line in result.read.blocks[0].lines:
+                for word in line.words:
+                    print(f"  {word.text} (Confidence: {word.confidence:.2f}%)")
+            # Annotate the words in the image
+            annotate_words(image_file, result.read)
         
 
 
