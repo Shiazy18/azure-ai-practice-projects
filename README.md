@@ -11,16 +11,16 @@
 
   - Create a .env file with below values
 
-  ```code
-AI_SERVICE_ENDPOINT=your_project_endpoint
-AI_SERVICE_KEY=your_project_key
-  ```
+```
+  AI_SERVICE_ENDPOINT=your_project_endpoint
+  AI_SERVICE_KEY=your_project_key
+```
 - Run the below commands
 
-```code
-python -m venv textread
-./textread/bin/Activate.ps1
-pip install -r requirements.txt azure-ai-vision-imageanalysis==1.0.0
+```
+  python -m venv textread
+  ./textread/bin/Activate.ps1
+  pip install -r requirements.txt azure-ai-vision-imageanalysis==1.0.0
 ```
 
 
