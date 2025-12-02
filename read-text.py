@@ -31,7 +31,6 @@ def main():
 
 
         # Authenticate Azure AI Vision client
-        # Authenticate Azure AI Vision client
         cv_client = ImageAnalysisClient(
             endpoint=ai_endpoint,
             credential=AzureKeyCredential(ai_key))
@@ -39,7 +38,7 @@ def main():
         
         # Read text in image
         with open(image_file, "rb") as f:
-            image_data = f.Read()
+            image_data = f.read()
         print (f"\nReading text in {image_file}")
 
         result = cv_client.analyze(
@@ -47,7 +46,6 @@ def main():
             visual_features=[VisualFeatures.READ])
         
 
-        # Print the text
         # Print the text
         if result.read is not None:
             print("\nText:")
