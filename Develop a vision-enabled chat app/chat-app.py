@@ -57,11 +57,15 @@ def main():
 
 
                 # Get a response to image input
-                # Get a response to image input
-                image_url = "https://github.com/MicrosoftLearning/mslearn-ai-vision/raw/refs/heads/main/Labfiles/gen-ai-vision/orange.jpeg"
-                image_format = "jpeg"
-                request = Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
-                image_data = base64.b64encode(urlopen(request).read()).decode("utf-8")
+                script_dir = Path(__file__).parent  #Get directory of script
+                image_path = script_dir / 'mystery-fruit.jpeg'
+                image_format = "image/jpeg"
+                with open(image_path, "rb") as image_file:
+                    image_data = base64.b64encode(image_file.read()).decode("utf-8")
+                #image_url = "https://github.com/MicrosoftLearning/mslearn-ai-vision/raw/refs/heads/main/Labfiles/gen-ai-vision/orange.jpeg"
+                #image_format = "jpeg"
+                #request = Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
+                #image_data = base64.b64encode(urlopen(request).read()).decode("utf-8")
                 data_url = f"data:image/{image_format};base64,{image_data}"
                 response = openai_client.chat.completions.create(
                         model=model_deployment,    
