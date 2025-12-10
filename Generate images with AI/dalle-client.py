@@ -2,7 +2,6 @@ import os
 import json
 
 # Add references
-# Add references
 from dotenv import load_dotenv
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import AzureOpenAI
@@ -50,6 +49,15 @@ def main():
                 continue
             
             # Generate an image
+            result = client.images.generate(
+                model=model_deployment,
+                prompt=input_text,
+                n=1
+            )
+
+            json_response = json.loads(result.model_dump_json())
+            image_url = json_response["data"][0]["url"] 
+            )
             
 
             # save the image
