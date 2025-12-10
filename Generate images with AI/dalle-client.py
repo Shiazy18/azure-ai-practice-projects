@@ -56,8 +56,7 @@ def main():
             )
 
             json_response = json.loads(result.model_dump_json())
-            image_url = json_response["data"][0]["url"] 
-            )
+            image_url = json_response["data"][0]["url"]
             
 
             # save the image
